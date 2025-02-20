@@ -9,7 +9,7 @@ class CounterState extends Equatable {
     return CounterState(numberValue: numberValue ?? this.numberValue);
   }
 
-  CounterState reset({int? numberValue}) {
+  CounterState reset() {
     return const CounterState(numberValue: 0);
   }
 

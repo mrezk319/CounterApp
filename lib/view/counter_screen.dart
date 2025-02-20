@@ -49,10 +49,8 @@ class CounterScreen extends StatelessWidget {
               BlocBuilder<CounterCubit, CounterState>(
                 builder: (context, state) {
                   return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomButton(
-                          textFieldController: textFieldController,
                           onTap: () {
                             if (textFieldController.value.text.isNotEmpty) {
                               context.read<CounterCubit>().decreaseNumber(
@@ -65,7 +63,6 @@ class CounterScreen extends StatelessWidget {
                         width: 40,
                       ),
                       CustomButton(
-                          textFieldController: textFieldController,
                           onTap: () {
                             if (textFieldController.value.text.isNotEmpty) {
                               context.read<CounterCubit>().increaseNumber(
@@ -79,17 +76,17 @@ class CounterScreen extends StatelessWidget {
                 },
               ),
               const SizedBox(
-                height: 15,
+                height: 25,
               ),
               BlocBuilder<CounterCubit, CounterState>(
                 builder: (context, state) {
                   return Row(
                     children: [
                       CustomButton(
-                          textFieldController: textFieldController,
                           onTap: () {
+                            context.read<CounterCubit>().reset();
                             if (textFieldController.value.text.isNotEmpty) {
-                              context.read<CounterCubit>().reset();
+                              textFieldController.clear();
                             }
                           },
                           title: "Reset"),

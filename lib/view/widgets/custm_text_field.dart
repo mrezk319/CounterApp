@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({super.key, this.textFieldController});
@@ -10,6 +11,10 @@ class CustomTextField extends StatelessWidget {
     return TextField(
       controller: textFieldController,
       keyboardType: TextInputType.number,
+      inputFormatters: [
+        LengthLimitingTextInputFormatter(6),
+        FilteringTextInputFormatter.digitsOnly,
+      ],
       decoration: InputDecoration(
         hintText: "Enter the number...",
         hintStyle: TextStyle(color: Colors.grey[600]),
