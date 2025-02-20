@@ -30,9 +30,9 @@ class CounterScreen extends StatelessWidget {
             children: [
               BlocSelector<CounterCubit, CounterState, int?>(
                 selector: (state) => state.numberValue,
-                builder: (context, state) {
+                builder: (context, value) {
                   return Text(
-                    state?.toString() ?? "",
+                    value?.toString() ?? "",
                     style: const TextStyle(color: Colors.blue, fontSize: 35),
                   );
                 },
